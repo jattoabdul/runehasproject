@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    Student Dashboard
+{% endblock %}
+
+{% block content %}
+    <!-- main content start -->
+    <section id="view" class="col m9 l9 no-padding">
+            <!--banner start-->
+{#            {% include 'banner.html' %}#}
+            <!--banner end-->
+            <section class="row container">
+            <br/>
+            <div class="col s12 m12 offset">
+                <div class="card-panel">
+                    <h4 class="center green-text no-padding">Hostel Allocation Receipt</h4>
+                    <div class="green-text text-darken-3 white left-align" style="padding: 0.5rem 1rem">
+                        <p>
+                            You have successfully booked a hostel, print your receipt here
+                        </p>
+                        <div class="card-image center">
+                            <img src="{% static 'img/passport.jpg' %}" class="responsive-img circle" alt="Students Passport" style="width: 200px">
+                        </div>
+                        <p class="flow-text center-align">
+                            Full Name: <span>Aminujatto Abdulqahhar</span><br/>
+                            Mat No: <span>2010/1/35209BL</span><br/>
+                            Hostel: <span>Hostel Q</span><br/>
+                            Compound: <span>Compound C</span><br/>
+                            Room: <span>QC35</span><br/>
+                            Bed: <span>Bed D</span><br/>
+                            Book Id: <span>234-1w2-345</span><br/>
+                            Sex: <span>Male</span><br/>
+                            Date of Allocation: <span>25th Of March 2017</span><br/>
+                        </p>
+                        <br/>
+                        <div class="center-align">
+                            <button class="btn blue-grey darken-3 waves-effect waves-light" onclick="window.print()">Print Receipt</button>
+                            <a href="/hostel/dashboard"><button class="btn blue-grey darken-3 waves-effect waves-light">Go Home</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </section>
+        </section>
+    <!-- main content end -->
+
+    <!-- side menu start -->
+    {% include 'aside.html' %}
+    <!-- side menu end -->
+{% endblock %}

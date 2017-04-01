@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+{% load staticfiles %}
+{% load i18n %}
+{% load static %}
+<html>
+
+<head>
+    <!-- Meta Tag -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO -->
+    <meta name="description" content="150 words">
+    <meta name="author" content="jattoabdul">
+    <meta name="url" content="http://www.run.edu.ng">
+    <meta name="copyright" content="redeemer's university">
+    <meta name="robots" content="index,follow">
+
+
+    <title>Redeemer's University :: {% block title %}Portal{% endblock %}</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="{% static 'img/favicon.ico' %}">
+
+    <!-- styles -->
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/ionicons.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/materialize.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/animate.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+
+<body class="grey lighten-5">
+    <!-- slide out menu start -->
+    <ul id="slide-out" class="side-nav">
+        <li>
+            <div class="userView">
+                <div class="background" style="background: indigo">
+                    <img alt="">
+                </div>
+                <a href="#!user"><img class="circle" src="{% static 'img/logo.png' %}"></a>
+                <a href="#!name"><span class="white-text name">Hostel Allocation</span></a>
+                <a href="#!email"><span class="white-text email">
+                    <!--contact@run.edu.ng-->
+                    </span></a>
+            </div>
+        </li>
+        <li>
+            <a href="#!" class="waves-effect waves-light"> <i class="icon ion-ios-home left"></i> Home</a>
+        </li>
+        <li>
+            <a href="#!" class="waves-effect waves-light"> <i class="icon ion-ios-information left"></i> Help Desk</a>
+        </li>
+        <li>
+            <a href="#!" class="waves-effect waves-light"> <i class="icon ion-ios-personadd left"></i> Registration</a>
+        </li>
+        <li>
+            <a href="#!" class="waves-effect waves-light"> <i class="icon ion-document-text left"></i> Instruction</a>
+        </li>
+        <li>
+            <a href="#!" class="waves-effect waves-light"> <i class="icon ion-log-in left"></i> Login</a>
+        </li>
+    </ul>
+    <!-- slide out menu end -->
+    <!-- Top Menu start -->
+    <div class="navbar-fixed">
+        <div id="igbati"></div>
+        <a href="/">
+            <img id="logo-image" class="responsive-img" src="{% static 'img/logo.png' %}" alt="Redeemer's University">
+        </a>
+        <nav class="indigo darken-4">
+            <div class="nav-wrapper container">
+                <a href="#" data-activates="slide-out" class="button-collapse"><i class="icon ion-navicon"></i></a>
+                <a href="/" class="brand-logo"> <i class="icon ion-grid left"></i> Hostel Allocation</a>
+                <ul class="right hide-on-med-and-down">
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'userena_profile_detail' user.username %}" class="waves-effect waves-light"> <i class="icon ion-ios-home-outline left"></i>Dashboard</a>
+                    </li>
+                    {% endif %}
+                    <li>
+                        <a href="#!" class="waves-effect waves-light"> <i class="icon ion-ios-information-outline left"></i> Help Desk</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="waves-effect waves-light"> <i class="icon ion-ios-personadd-outline left"></i> Registration</a>
+                    </li>
+                    <li>
+                        <a href="#!" class="waves-effect waves-light"> <i class="icon ion-document-text left"></i> Instruction</a>
+                    </li>
+                    {% if not user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'userena_signin' %}" class="waves-effect waves-light"> <i class="icon ion-log-in left"></i> Login</a>
+                    </li>
+                    {% endif %}
+                    {% if user.is_authenticated %}
+                    <li>
+                        <a href="{% url 'userena_signout' %}" class="waves-effect waves-light"> <i class="icon ion-log-out left"></i> Logout</a>
+                    </li>
+                    {% endif %}
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <!-- Top Menu end -->
+    <!--main menu area starts-->
+    <main class="row">
+        {% block content %}
+
+
+        {% endblock %}
+    </main>
+    <!--main menu area ends-->
+    <!-- footer start -->
+    {% include 'footer.html' %}
+    <!-- footer end -->
+
+    <!-- scripts -->
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/materialize.min.js' %}"></script>
+    <script src="{% static 'js/app.js' %}"></script>
+</body>
+
+</html>

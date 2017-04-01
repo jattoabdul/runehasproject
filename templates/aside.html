@@ -1,0 +1,67 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load static %}
+<aside class="col s12 m3 l3 no-padding">
+    <h6 class="blue-text" style="padding-bottom: 0; text-align: center; margin-bottom: 0;">Main Menu</h6>
+    <ul id="sidemenu" class="collapsible indigo-text text-darken-4 " data-collapsible="accordion">
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>Personal Details</div>
+                <div class="collapsible-body ">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'userena_profile_detail' user.username %}"><span>View Personal Details</span></a> <br/>
+                    <a href="{% url 'userena_profile_edit' user.username %}"><span>Edit Personal Details</span></a>
+                {% endif %}
+                </div>
+        </li>
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>Password Management</div>
+            <div class="collapsible-body ">
+                {% if user.is_authenticated %}
+                    <a href="{% url 'userena_password_change' user.username %}"><span>Change Password</span></a>
+                {% endif %}
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>Hostel Allocation</div>
+            <div class="collapsible-body ">
+                <a href="/hostel/book_hostel"><span>Apply For Hostel Accommodation</span></a>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>Course Registration</div>
+            <div class="collapsible-body "><span>Register Courses</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>Print Receipt</div>
+            <div class="collapsible-body "><a href="/hostel/print_receipt"><span>Print Hostel Receipt</span></a>
+                <br/><a href=""><span>Print School Fees Receipt</span></a>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>Fee Schedule</div>
+            <div class="collapsible-body "><span>Download Fee Schedule</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>School Curriculum</div>
+            <div class="collapsible-body "><span>Print School Curriculum</span></div>
+        </li>
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>Registration Instruction</div>
+            <div class="collapsible-body ">
+                <a href=""><span>Registration Instruction For Fresh Student</span></a> <br/>
+                <a href=""><span>Registration Instruction For Returning Student</span></a> <br/>
+                <a href=""><span>Registration Instruction For Post Graduate Student</span></a>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>Help Desk</div>
+            <div class="collapsible-body ">
+                <a href=""><span>FAQ</span></a>
+            </div>
+        </li>
+        <li>
+            <div class="collapsible-header "><i class="icon ion-android-chat "></i>Portal Manual</div>
+            <div class="collapsible-body "><span>Download Manual</span></div>
+        </li>
+    </ul>
+</aside>

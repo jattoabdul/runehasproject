@@ -1,0 +1,32 @@
+{% load staticfiles %}
+{% load i18n %}
+{% load static %}
+<div id="banner" class="slider hide-on-small-only">
+    <ul class="slides ">
+        <li>
+            <img src="{% static 'img/1.jpg' %}">
+            <div class="caption center-align ">
+                <h3>Academic Excellence!</h3>
+            </div>
+        </li>
+        <li>
+            <img src="{% static 'img/2.jpg' %}">
+            <div class="caption left-align ">
+                <h3>Peer Teaching</h3>
+            </div>
+        </li>
+        <li>
+            <img src="{% static 'img/3.jpg' %}">
+            <div class="caption right-align ">
+                <h3>Best Learning Environment</h3>
+            </div>
+        </li>
+        <li>
+            <img src="{% static 'img/4.jpg' %}">
+            <div class="caption center-align ">
+                <h3>This is our big Tagline!</h3>
+                <h5 class="light grey-text text-lighten-3 ">Here's our small slogan.</h5>
+            </div>
+        </li>
+    </ul>
+</div>

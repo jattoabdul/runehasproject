@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    Portal Home
+{% endblock %}
+
+{% block content %}
+    <!-- main content start -->
+    <section id="view" class="col m9 l9 no-padding">
+            <!--banner start-->
+            {% include 'banner.html' %}
+            <!--banner end-->
+            <section class="row container">
+                <p class="flow-text ">
+                    Dear Student,
+                    <br> You are welcome to the University.
+                    I want to congratulate you on your admission into the 'First and Best' University.
+                    Please note that you will not be allowed to matriculate and therefore become a bona-fide student of
+                    this University, if you do not complete all the stipulated registration processes.
+                </p>
+                <a href="#! ">
+                    <h5>Notice for 2017/2018 Session</h5>
+                </a>
+                <h5>
+                    <u>Registration process for the new session</u>
+                </h5>
+                <ol>
+                    <li>All prospective candidates are expected to visit the University of Ilorin website and click on provisional admission link in order to confirm their admission status.</li>
+                    <li>Click on Pre-Admission Screening Login</li>
+                    <li>Enter JAMB Registration Number as your Login-ID and your Surname in the spaces provided, e.g JAMB Registration No: 23455677FC and Surname: Abu.</li>
+                    <li>Click on Login</li>
+                    <li>On the Menu List on the left hand side, click on "Click on Check Admission Status" Link</li>
+                    <li>Proceed to the payment of Acceptance of N20,000.00 plus N250.00 processing fees by clicking on "Click here to make Payment" button.</li>
+                    <li>Click on "Continue" button if displayed.</li>
+                    <li>After Successful Payment: Two links will be displayed on the left hand side Menu List. Click Upload Document(s) to continue.</li>
+                    <li>For each upload, ensure that correct information is recorded by cross-checking your data with the table underneath.</li>
+                    <li>After completing Step 9 above, Check on the Portal regularly for your clearance status.</li>
+                    <li>For further enquiries contact : admissions2015@unilorin.edu.ng</li>
+                </ol>
+                <a href="{% url 'userena_signup' %}"><button class="btn-large blue darken-4 waves-effect waves-light">Click here to continue Registration</button></a>
+            </section>
+        </section>
+    <!-- main content end -->
+
+    <!-- side menu start -->
+    {% include 'aside.html' %}
+    <!-- side menu end -->
+{% endblock %}

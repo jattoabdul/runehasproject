@@ -1,0 +1,64 @@
+{% extends 'userena/base_userena.html' %}
+
+{% load i18n %}
+
+{% block title %}{% blocktrans with profile.user.username as username %}{{ username }}'s profile.{% endblocktrans %}{% endblock %}
+{% block content_title %}<h2>{{ profile.user.username }} {% if profile.user.get_full_name %}({{ profile.user.get_full_name }}){% endif %}</h2>{% endblock %}
+
+{% block content %}
+    <section id="view" class="col m9 l9 no-padding">
+        <!--banner start-->
+{#            {% include 'banner.html' %}#}
+        <!--banner end-->
+        <section class="row container">
+            <h4>Welcome {{ profile.user.username }},</h4>
+                <br/>
+                    <img class="center circle center-block"  src="{{ profile.get_mugshot_url }}" style="height:250px;"; alt="{% trans "Student Passport" %}">
+                <p class="flow-text">
+                {% if profile.user.get_full_name %}
+                    <span>Full Name: {{ profile.title|title }}. {{ profile.user.get_full_name }}</span><br/>
+                {% endif %}
+                {% if profile.user.email %}
+                    <span>Email: {{ profile.user.email }}</span><br/>
+                {% endif %}
+                {% if profile.gender %}
+                    <span>Sex: {{ profile.get_gender_display }}</span><br/>
+                {% endif %}
+                {% if profile.mat_no %}
+                    <span>Mat No: {{ profile.mat_no }}</span><br/>
+                {% endif %}
+                {% if profile.faculty %}
+                    <span>Faculty: {{ profile.faculty }}</span><br/>
+                {% endif %}
+                {% if profile.department %}
+                    <span>Department: {{ profile.department }}</span><br/>
+                {% endif %}
+                {% if profile.dob %}
+                    <span>DOB: {{ profile.dob }}</span><br/>
+                {% endif %}
+                {% if profile.level %}
+                    <span>Current Level: {{ profile.level }}</span><br/>
+                {% endif %}
+                {% if profile.lga %}
+                    <span>LGA: {{ profile.lga }}</span><br/>
+                {% endif %}
+                {% if profile.state_of_origin %}
+                    <span>State of Origin: {{ profile.state_of_origin }}</span><br/>
+                {% endif %}
+                {% if profile.homeAddress %}
+                    <span>Permanent Home Address: {{ profile.homeAddress }}</span><br/>
+                {% endif %}
+                {% if profile.room %}
+                    <span>Current Room Allocated: {{ profile.room }}</span><br/>
+                {% else %}
+                    <span>Current Room Allocated: NYA </span><!--if room not yet allocated to student(Not Yet Allocated)-->
+                {% endif %}
+                </p>
+        </section>
+    </section>
+    <!-- main content end -->
+
+    <!-- side menu start -->
+    {% include 'aside.html' %}
+    <!-- side menu end -->
+{% endblock %}

@@ -1,0 +1,66 @@
+{% extends "base.html" %}
+{% load staticfiles %}
+{% load i18n %}
+{% load static %}
+
+{% block title %}
+    Student Dashboard
+{% endblock %}
+
+{% block content %}
+    <!-- main content start -->
+    <section id="view" class="col m9 l9 no-padding">
+            <!--banner start-->
+{#            {% include 'banner.html' %}#}
+            <!--banner end-->
+            <section class="row container">
+                <br>
+                <div class="col s12 m12 offset">
+                    <div class="card-panel">
+                        <h4 class="center">Hostel Allocation Confirmation Page</h4>
+                        <div class="green-text text-darken-3 white center-align" style="padding: 0.5rem 1rem">
+                            <h5 class="center-align green white-text">Selected Hostel Preference is available</h5>
+                            <h5 class="center-align orange white-text">Selected Hostel Preference is not available, Room randomly Selected</h5>
+                            <h5 class="center-align red white-text">All Rooms are occupied, Non available</h5>
+                            <div class="row center">
+                                <div class="col s3">
+                                    <p class="flow-text">Hostel</p>
+                                    <p class="flow-text"><b>Hostel A</b></p>
+                                </div>
+                                <div class="col s3">
+                                    <p class="flow-text">Block</p>
+                                    <p class="flow-text"><b>Block A</b></p>
+                                </div>
+                                <div class="col s3">
+                                    <p class="flow-text">Room</p>
+                                    <p class="flow-text"><b>Room 3</b></p>
+                                </div>
+                                <div class="col s3">
+                                    <p class="flow-text">Bed</p>
+                                    <p class="flow-text"><b>Bed C</b></p>
+                                </div>
+                                <div class="col s12 center-align">
+                                    <p class="flow-text">Date : Session</p>
+                                    <p class="flow-text"><b>23-03-2017 : 2016/2017 Session</b></p>
+                                </div>
+                                <a href="/hostel/print_receipt"><button class="btn blue-grey darken-3 waves-effect waves-light">Book</button></a>
+                                <a href="/hostel/book_hostel"><button class="btn pink waves-effect waves-light">Back</button></a>
+                            </div>
+                        </div>
+                        <!--<br>
+                        <div class="red white-text center-align" style="padding: 0.5rem 1rem">
+                            <h5 class="">Selected Choice is unavailable</h5>
+                            <button class="btn blue waves-effect waves-light">Choose another option</button>
+                            <button class="btn purple waves-effect waves-light">Let's select an available option for you</button>
+                        </div>-->
+                    </div>
+                </div>
+                <br><br>
+            </section>
+        </section>
+    <!-- main content end -->
+
+    <!-- side menu start -->
+    {% include 'aside.html' %}
+    <!-- side menu end -->
+{% endblock %}
