@@ -19,7 +19,8 @@ class Block(models.Model):
     hall = models.CharField(max_length=2, verbose_name=_('hostel'), choices=HOSTEL_CHOICES)
 
     def __str__(self):
-        return "{id} - {name}".format(id=self.blockid, name=self.name)
+        return "{name}".format(name=self.name)
+        # return "{id} - {name}".format(id=self.blockid, name=self.name)
 
 
 class Room(models.Model):
@@ -28,7 +29,8 @@ class Room(models.Model):
     block = models.ForeignKey(Block, related_name='block', verbose_name=_('Room\'s Block'), on_delete=models.CASCADE)
 
     def __str__(self):
-        return "{id} - {hostel} - {room}".format(id=self.rid, hostel=self.block.name, room=self.name)
+        return "{room}".format(room=self.name)
+        # return "{id} - {hostel} - {room}".format(id=self.rid, hostel=self.block.name, room=self.name)
 
 
 class Bed(models.Model):
@@ -46,7 +48,8 @@ class Bed(models.Model):
     allocation_status = models.BooleanField(_('Allocated Status'), help_text=_("not allocated by default but when value is true i.e.(checked), bed is allocated"), default=False)
 
     def __str__(self):
-        return "{id} - {room} - {bed}".format(id=self.bid, room=self.room.name, bed=self.bname)
+        return "{bed}".format(bed=self.bname)
+        # return "{id} - {room} - {bed}".format(id=self.bid, room=self.room.name, bed=self.bname)
 
 
 class Booking(models.Model):

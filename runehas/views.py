@@ -33,7 +33,6 @@ def bookhostel(request):
         prefered_bed = form.cleaned_data.get('prefered_bed', None)
 
         return redirect('hostelbookingconfirmation')
-    # context_dict = locals()
     context_dict = {'form': form,}
     return render(request, "book_hostel.html", context_dict)
 

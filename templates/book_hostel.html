@@ -23,14 +23,6 @@
                                 {% for field in form %}
                                 <div class="input-field col s12 m4">
                                     {{ field }}
-                                    <!--<select name="prefered_block" id="prefered-block">
-                                        <option value="" disabled selected>Choose a Block</option>
-                                        <option value="block-a">Block A</option>
-                                        <option value="block-b">Block B</option>
-                                        <option value="block-c">Block C</option>
-                                        <option value="block-d">Block D</option>
-                                        <option value="block-e">Block E</option>
-                                    </select>-->
                                     <label>Select a {{ field.label }}</label>
                                 </div>
                                 {% endfor %}
