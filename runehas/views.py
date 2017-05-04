@@ -22,6 +22,17 @@ def index(request):
 # Views for booking hostel (selecting and searching availability of hostel rooms to be booked)
 @login_required()
 def bookhostel(request):
+
+    profile = get_user_profile(user=get_user(request))
+    if profile.gender == 'ML':
+        print(profile.gender)
+        hall = 'Prophet Moses Hall'
+        print(hall)
+    else:
+        print(profile.gender)
+        hall = 'Queen Ester Hall'
+        print(hall)
+
     # Logic for selecting(searching) hostel preference to be booked
     form_class = SelectPreferenceForm
     # if request is not post, initialize an empty form
@@ -33,7 +44,7 @@ def bookhostel(request):
         prefered_bed = form.cleaned_data.get('prefered_bed', None)
 
         return redirect('hostelbookingconfirmation')
-    context_dict = {'form': form,}
+    context_dict = {'form': form, 'hall': hall}
     return render(request, "book_hostel.html", context_dict)
 
 
@@ -52,4 +63,3 @@ def printhostelreceipt(request):
     # Logic for booking hostel
     context_dict = locals()
     return render(request,"hostelreceipt.html", context_dict)
-

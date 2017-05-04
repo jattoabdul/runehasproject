@@ -27,7 +27,7 @@ class MyProfile(UserenaBaseProfile):
                                 verbose_name=_('User'),
                                 related_name='my_profile')
     title = models.CharField(max_length=2, verbose_name=_('Title(Mr/Miss/Mrs)'), choices=TITLE_CHOICES, blank=True)
-    mat_no = models.CharField(max_length=250, verbose_name=_('Student\'s Matric No'), blank=True, null=True)
+    mat_no = models.CharField(max_length=250, verbose_name=_('Student\'s Matric No'), help_text='Student\'s matric number e.g. RUN/CMP/13/5219', blank=True, null=True)
     email = models.EmailField(max_length=254, verbose_name=_('Email'), null=True)
     mobileNo = models.PositiveIntegerField(verbose_name=_('Phone No'), null=True)
     homeAddress = models.TextField(max_length=250, verbose_name=_('Permanent Home Address'), blank=True)

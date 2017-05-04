@@ -11,8 +11,8 @@ class Block(models.Model):
     KINGS = 'KG'
     QUEENS = 'QN'
     HOSTEL_CHOICES = (
-        (KINGS, _('KINGS')),
-        (QUEENS, _('QUEENS')),
+        (KINGS, _('Prophet Moses Hall')),
+        (QUEENS, _('Queen Esther Hall')),
     )
     blockid = models.AutoField(verbose_name=_('Block ID'), primary_key=True)
     name = models.CharField(max_length=250, verbose_name=_('Hostel Block Name'), blank=True)
@@ -27,6 +27,8 @@ class Room(models.Model):
     rid = models.AutoField(verbose_name=_('Room ID'), primary_key=True)
     name = models.CharField(max_length=15, verbose_name=_('Room Name'), blank=True)
     block = models.ForeignKey(Block, related_name='block', verbose_name=_('Room\'s Block'), on_delete=models.CASCADE)
+    special = models.BooleanField(_('400l Special Room'), help_text=_(
+        "Rooms are by default not special, but rooms of 400l students are specials (rooms 1,12,13 and 24 in each block)"), default=False)
 
     def __str__(self):
         return "{room}".format(room=self.name)
@@ -34,8 +36,8 @@ class Room(models.Model):
 
 
 class Bed(models.Model):
-    BEDA = 'BA'
-    BEDB = 'BB'
+    BEDA = 'BedA'
+    BEDB = 'BedB'
 
     BED_CHOICES = (
         (BEDA, _('Bed A')),
@@ -43,7 +45,7 @@ class Bed(models.Model):
     )
 
     bid = models.AutoField(verbose_name=_('BED UNIQUE ID'), primary_key=True)
-    bname = models.CharField(max_length=2, verbose_name=_('Bed Name'), choices=BED_CHOICES, null=True)
+    bname = models.CharField(max_length=4, verbose_name=_('Bed Name'), choices=BED_CHOICES, null=True)
     room = models.ForeignKey(Room, related_name='room', verbose_name=_('Room Name'), on_delete=models.CASCADE)
     allocation_status = models.BooleanField(_('Allocated Status'), help_text=_("not allocated by default but when value is true i.e.(checked), bed is allocated"), default=False)
 
