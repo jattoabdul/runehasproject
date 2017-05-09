@@ -166,6 +166,7 @@ MEDIA_DIR = os.path.join(BASE_DIR, 'media')
 MEDIA_ROOT = MEDIA_DIR
 
 # userena URI reflecting
+# USERENA_SIGNIN_REDIRECT_URL = '/accounts/%(username)s/'
 USERENA_SIGNIN_REDIRECT_URL = '/accounts/%(username)s/'
 USERENA_SIGNIN_AFTER_SIGNUP = True
 LOGIN_REDIRECT_URL = '/accounts/signin/'
