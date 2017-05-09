@@ -4,26 +4,43 @@
 {% block title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<form action="" method="post">
-  {% csrf_token %}
-  <fieldset>
-    <legend>{% trans "Signup" %}</legend>
-    {{ form.non_field_errors }}
-    {% for field in form %}
-    {{ field.errors }}
-    {% comment %} Displaying checkboxes differently {% endcomment %}
-    {% if field.name == 'tos' %}
-    <p class="checkbox">
-    <label for="id_{{ field.name }}">{{ field }} {{ field.label }}</label>
-    </p>
-    {% else %}
-    <p>
-    {{ field.label_tag }} 
-    {{ field }}
-    </p>
-    {% endif %}
-    {% endfor %}
-  </fieldset>
-  <input type="submit" value="{% trans "Signup"%}" />
-</form>
+        <!-- main content start -->
+    <section id="view" class="col m9 l9 no-padding">
+        <div class="container">
+            <br><br>
+            <div class="col s12 m8 offset-m1">
+                <div class="card-panel">
+                    <p class="center-align flow-text"><b>Login to book your Hostel now!</b></p>
+                    <form action="" method="post">
+                      {% csrf_token %}
+                      <fieldset>
+                        <legend>{% trans "Signup" %}</legend>
+                        {{ form.non_field_errors }}
+                        {% for field in form %}
+                        {{ field.errors }}
+                        {% comment %} Displaying checkboxes differently {% endcomment %}
+                        {% if field.name == 'tos' %}
+                        <p class="checkbox">
+                        <label for="id_{{ field.name }}">{{ field }} {{ field.label }}</label>
+                        </p>
+                        {% else %}
+                        <p>
+                        {{ field.label_tag }}
+                        {{ field }}
+                        </p>
+                        {% endif %}
+                        {% endfor %}
+                      </fieldset>
+                      <input type="submit" value="{% trans "Signup"%}" />
+                    </form>
+                </div>
+            </div>
+            <br><br>
+        </div>
+    </section>
+    <!-- main content end -->
+
+    <!-- side menu start -->
+    {% include 'aside.html' %}
+    <!-- side menu end -->
 {% endblock %}
