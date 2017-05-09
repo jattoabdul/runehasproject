@@ -52,8 +52,15 @@ def bookhostel(request):
 @login_required()
 def confirmhostelbook(request):
     # Logic for confirming booking of hostel
+    profile = get_user_profile(user=get_user(request))
+    if profile.gender == 'ML':
+        print(profile.gender)
+        hall = 'Prophet Moses Hall'
+    else:
+        print(profile.gender)
+        hall = 'Queen Ester Hall'
 
-    context_dict = locals()
+    context_dict = {'profile': profile, 'hall': hall}
     return render(request,"allocationconfirmation.html", context_dict)
 
 
@@ -61,5 +68,13 @@ def confirmhostelbook(request):
 @login_required()
 def printhostelreceipt(request):
     # Logic for booking hostel
-    context_dict = locals()
+    profile = get_user_profile(user=get_user(request))
+    if profile.gender == 'ML':
+        print(profile.gender)
+        hall = 'Prophet Moses Hall'
+    else:
+        print(profile.gender)
+        hall = 'Queen Ester Hall'
+
+    context_dict = {'profile': profile, 'hall': hall}
     return render(request,"hostelreceipt.html", context_dict)

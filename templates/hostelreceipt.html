@@ -23,17 +23,25 @@
                             You have successfully booked a hostel, print your receipt here
                         </p>
                         <div class="card-image center">
-                            <img src="{% static 'img/passport.jpg' %}" class="responsive-img circle" alt="Students Passport" style="width: 200px">
+                            <img src="{{ profile.get_mugshot_url }}" class="responsive-img circle" alt="Students Passport" style="width: 200px">
                         </div>
                         <p class="flow-text center-align">
-                            Full Name: <span>Aminujatto Abdulqahhar</span><br/>
-                            Mat No: <span>2010/1/35209BL</span><br/>
-                            Hostel: <span>Hostel Q</span><br/>
-                            Compound: <span>Compound C</span><br/>
-                            Room: <span>QC35</span><br/>
-                            Bed: <span>Bed D</span><br/>
+                            {% if profile.user.get_full_name %}
+                            Full Name: <span>{{ profile.title|title }}. {{ profile.user.get_full_name }}</span><br/>
+                            {% endif %}
+                            {% if profile.mat_no %}
+                            Mat No: <span>{{ profile.mat_no }}</span><br/>
+                            {% endif %}
+                            {% if hall %}
+                            Hall: <span>{{ hall }}</span><br/>
+                            {% endif %}
+                            Block: <span>Block 1</span><br/>
+                            Room: <span>Room 3</span><br/>
+                            Bed: <span>Bed 2</span><br/>
                             Book Id: <span>234-1w2-345</span><br/>
-                            Sex: <span>Male</span><br/>
+                            {% if profile.gender %}
+                            Sex: <span>{{ profile.get_gender_display }}</span><br/>
+                            {% endif %}
                             Date of Allocation: <span>25th Of March 2017</span><br/>
                         </p>
                         <br/>

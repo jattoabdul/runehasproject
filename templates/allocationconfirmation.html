@@ -20,28 +20,30 @@
                         <h4 class="center">Hostel Allocation Confirmation Page</h4>
                         <div class="green-text text-darken-3 white center-align" style="padding: 0.5rem 1rem">
                             <h5 class="center-align green white-text">Selected Hostel Preference is available</h5>
-                            <h5 class="center-align orange white-text">Selected Hostel Preference is not available, Room randomly Selected</h5>
-                            <h5 class="center-align red white-text">All Rooms are occupied, Non available</h5>
+{#                            <h5 class="center-align orange white-text">Selected Hostel Preference is not available, Room randomly Selected</h5>#}
+{#                            <h5 class="center-align red white-text">All Rooms are occupied, Non available</h5>#}
                             <div class="row center">
                                 <div class="col s3">
-                                    <p class="flow-text">Hostel</p>
-                                    <p class="flow-text"><b>Hostel A</b></p>
+                                    <p class="flow-text">Hall</p>
+                                    {% if hall %}
+                                    <p class="flow-text" style="font-size: 20px"><b>{{ hall }}</b></p>
+                                    {% endif %}
                                 </div>
                                 <div class="col s3">
                                     <p class="flow-text">Block</p>
-                                    <p class="flow-text"><b>Block A</b></p>
+                                    <p class="flow-text"><b>Block 1</b></p>
                                 </div>
                                 <div class="col s3">
                                     <p class="flow-text">Room</p>
-                                    <p class="flow-text"><b>Room 3</b></p>
+                                    <p class="flow-text"><b>Room 1</b></p>
                                 </div>
                                 <div class="col s3">
                                     <p class="flow-text">Bed</p>
-                                    <p class="flow-text"><b>Bed C</b></p>
+                                    <p class="flow-text"><b>Bed 2</b></p>
                                 </div>
                                 <div class="col s12 center-align">
                                     <p class="flow-text">Date : Session</p>
-                                    <p class="flow-text"><b>23-03-2017 : 2016/2017 Session</b></p>
+                                    <p class="flow-text"><b>09-05-2017 : 2016/2017 Session</b></p>
                                 </div>
                                 <a href="/hostel/print_receipt"><button class="btn blue-grey darken-3 waves-effect waves-light">Book</button></a>
                                 <a href="/hostel/book_hostel"><button class="btn pink waves-effect waves-light">Back</button></a>
